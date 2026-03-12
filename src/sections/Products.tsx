@@ -8,11 +8,12 @@ interface Product {
   image: string;
 }
 
+const baseUrl = import.meta.env.BASE_URL;
 const products: Product[] = [
-  { id: 'fragrance', image: '/product-fragrance.jpg' },
-  { id: 'industrial', image: '/product-industrial.jpg' },
-  { id: 'electronic', image: '/product-electronics.jpg' },
-  { id: 'daily', image: '/product-daily.jpg' },
+  { id: 'fragrance', image: `${baseUrl}product-fragrance.jpg` },
+  { id: 'industrial', image: `${baseUrl}product-industrial.jpg` },
+  { id: 'electronic', image: `${baseUrl}product-electronics.jpg` },
+  { id: 'daily', image: `${baseUrl}product-daily.jpg` },
 ];
 
 function ProductCard({

@@ -18,6 +18,18 @@ const locations: Location[] = [
   { id: 'sea', x: 78, y: 56, role: 'supplier' },
 ];
 
+const roleColors = {
+  headquarters: 'bg-gold shadow-gold',
+  customer: 'bg-blue-500 shadow-lg shadow-blue-500/30',
+  supplier: 'bg-green-500 shadow-lg shadow-green-500/30',
+} as const;
+
+const rolePingColors: Record<string, string> = {
+  headquarters: 'rgba(212, 168, 83, 0.3)',
+  customer: 'rgba(59, 130, 246, 0.3)',
+  supplier: 'rgba(34, 197, 94, 0.3)',
+};
+
 function LocationMarker({
   location,
   delay,
@@ -34,6 +46,7 @@ function LocationMarker({
     supplier: Factory,
   };
   const Icon = roleIcons[location.role];
+  const markerColor = roleColors[location.role];
 
   return (
     <div
@@ -49,10 +62,13 @@ function LocationMarker({
       <div className="relative group">
         {/* Pulse Ring */}
         <div className="absolute inset-0 -m-4">
-          <div className="w-8 h-8 rounded-full bg-gold/30 animate-ping" />
+          <div
+            className="w-8 h-8 rounded-full animate-ping"
+            style={{ backgroundColor: rolePingColors[location.role] }}
+          />
         </div>
         {/* Marker */}
-        <div className="relative flex items-center justify-center w-8 h-8 bg-gold rounded-full shadow-gold cursor-pointer transition-transform duration-300 group-hover:scale-125">
+        <div className={`relative flex items-center justify-center w-8 h-8 rounded-full cursor-pointer transition-transform duration-300 group-hover:scale-125 ${markerColor}`}>
           <Icon className="w-4 h-4 text-white" />
         </div>
         {/* Tooltip */}
@@ -137,7 +153,7 @@ export default function GlobalNetwork() {
           {/* World Map */}
           <div className="absolute inset-0 flex items-center justify-center">
             <img
-              src="/world-map-new.jpg"
+              src={`${import.meta.env.BASE_URL}world-map-new.jpg`}
               alt="World Map"
               className="w-full h-full object-contain opacity-40"
             />

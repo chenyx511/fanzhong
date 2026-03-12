@@ -38,7 +38,7 @@ export default function Hero() {
           }`}
         >
           <img
-            src="/hero-bg.jpg"
+            src={`${import.meta.env.BASE_URL}hero-bg.jpg`}
             alt="Chemical facility"
             className="w-full h-full object-cover"
           />
