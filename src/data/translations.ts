@@ -1,0 +1,314 @@
+import type { Translations } from '@/types';
+
+export const translations: Translations = {
+  ja: {
+    nav: {
+      about: '会社概要',
+      network: 'グローバルネットワーク',
+      products: '製品情報',
+      partners: 'パートナー',
+      contact: 'お問い合わせ',
+    },
+    hero: {
+      title1: '世界をつなぐ',
+      title2: '香料ビジネス',
+      subtitle: '香料・化学品の輸出入および仲介貿易を専門とし、アジアと世界を架け橋にします',
+      ctaPrimary: 'サービスを見る',
+      ctaSecondary: 'お問い合わせ',
+    },
+    about: {
+      label: '会社概要',
+      title: '業界の実績とグローバルな視点',
+      subtitle: 'UNIHOPE CO., LTD',
+      description: '凡仲合同会社は、日本・大阪に拠点を置き、国際的な香料業界において専門的な貿易および技術サービスを展開する企業です。代表は、20年以上にわたり香料業界に従事し、世界トップ10の香料メーカーと強固で緊密な戦略的パートナーシップを築いてまいりました。',
+      bridge: {
+        title: '架け橋としての役割とサプライチェーンの強み',
+        content: '当社は、優良なサプライヤーとグローバル市場を結ぶ「信頼の架け橋」となることを使命としています。中国および東南アジアの主要な香料原料サプライヤーと高度な連携を図り、市場拡大の推進のみならず、製品構成の最適化や品質向上を支援することで、サプライヤー各社から多大な信頼と支持をいただいております。',
+      },
+      green: {
+        title: 'グリーン・ドリブン：持続可能な未来への貢献',
+        content: '従来の天然香料および合成香料ビジネスを基盤としつつ、地球温暖化という世界的な課題に対応するため、当社はバイオベース香料 (Bio-based Ingredients) を中核戦略として掲げております。低炭素で環境に配慮した原料ソリューションの普及に努め、脱炭素社会の実現と香料業界のサステナブルな発展に寄与してまいります。',
+      },
+      future: {
+        title: '未来の展望',
+        content: '今後の展望として、凡仲合同会社は日本市場への取り組みをさらに強化してまいります。日本独自の優れた天然香料や特色ある香料原料を、中国をはじめとする世界各地へ紹介し、その価値を広めることに注力いたします。同時に、当社のグローバルな供給網を活かし、高品質な香料原料をより適正な価格で国内市場へ供給してまいります。これにより、日本の食品、日用品、化粧品業界のさらなる発展に寄与し、産業全体の活性化とイノベーションに貢献していく所存です。',
+      },
+      corePartners: {
+        title: '主な提携先および取扱製品',
+        partners: [
+          {
+            name: 'PT. Natura Aromatik Nusantara (インドネシア)',
+            description: '高品質な丁子油（クローブオイル）、オイゲノールシリーズ',
+          },
+          {
+            name: 'Zhejiang NHU Co., Ltd. (中国)',
+            description: '戦略的パートナーとして、リナロール、ゲラニオール、シトロネロール、イオノン、メントールなど数十種類の香料製品を全般的に展開',
+          },
+          {
+            name: 'Wanxiang Technology Group Co., Ltd. (中国)',
+            description: '多様かつ高品質な合成香料原料の提供',
+          },
+          {
+            name: 'Chengdu Sunshine Flavors Co., Ltd. (中国)',
+            description: '最先端のバイオベース香料におけるリーディングサプライヤー。特にバイオバニリン、バイオラズベリーケトン等の環境配慮型製品に注力',
+          },
+        ],
+      },
+      stats: {
+        years: { value: '20+', label: '年の業界経験' },
+        partners: { value: '10', label: '世界トップ香料メーカー' },
+        transactions: { value: '1000+', label: '成功取引' },
+      },
+    },
+    network: {
+      label: 'グローバルネットワーク',
+      title: 'あなたのグローバルトレードパートナー',
+      description: '主要市場をカバーする私たちのネットワークは、世界中の機会につながります。',
+      locations: {
+        japan: '日本',
+        china: '中国',
+        usa: 'アメリカ',
+        europe: 'ヨーロッパ',
+        india: 'インド',
+        sea: '東南アジア',
+      },
+      roles: {
+        headquarters: '本社',
+        customer: '顧客',
+        supplier: 'サプライヤー',
+      },
+    },
+    products: {
+      label: '製品情報',
+      title: '高品質香料製品',
+      categories: {
+        fragrance: {
+          name: '天然香料',
+          description: '天然精油、植物由来香料、持続可能な調達',
+        },
+        industrial: {
+          name: '合成香料',
+          description: 'リナロール、ゲラニオール、シトロネロール、イオノン、メントールなど',
+        },
+        electronic: {
+          name: 'バイオベース香料',
+          description: 'バイオバニリン、バイオラズベリーケトンなど環境配慮型製品',
+        },
+        daily: {
+          name: '特殊香料原料',
+          description: '日本独自の天然香料、特色ある香料原料',
+        },
+      },
+    },
+    partners: {
+      label: 'パートナー',
+      title: '業界リーダーからの信頼',
+      description: '世界中の主要企業と強固なパートナーシップを築いています。',
+    },
+    process: {
+      label: '業務フロー',
+      title: '私たちの仕事の流れ',
+      steps: {
+        consultation: {
+          title: '相談',
+          description: 'お客様のニーズと要件を詳しく伺います。',
+        },
+        sourcing: {
+          title: '調達',
+          description: '信頼できるサプライヤーネットワークから最適な製品を探します。',
+        },
+        quality: {
+          title: '品質管理',
+          description: '厳格な検査で国際基準への適合を確保します。',
+        },
+        logistics: {
+          title: '物流',
+          description: '効率的な輸送とお客様への配送を行います。',
+        },
+        support: {
+          title: 'アフターサポート',
+          description: '継続的なサポートでお客様の満足を保証します。',
+        },
+      },
+    },
+    contact: {
+      label: 'お問い合わせ',
+      title: 'お気軽にお問い合わせください',
+      info: {
+        address: '〒533-0033 大阪市東淀川区東中島1-11-18号 東中島マンション204号室',
+        phone: 'unihopejp@gmail.com',
+        email: 'unihopejp@gmail.com',
+      },
+      form: {
+        name: 'お名前',
+        email: 'メールアドレス',
+        phone: '電話番号',
+        company: '会社名',
+        message: 'お問い合わせ内容',
+        submit: '送信する',
+        required: '必須',
+      },
+    },
+    footer: {
+      description: '業界の実績とグローバルな視点。信頼の架け橋として、持続可能な未来へ。',
+      quickLinks: 'クイックリンク',
+      contact: '連絡先',
+      copyright: '© 2024 凡仲合同会社 (UNIHOPE CO., LTD)。全著作権所有。',
+    },
+  },
+  en: {
+    nav: {
+      about: 'About Us',
+      network: 'Global Network',
+      products: 'Products',
+      partners: 'Partners',
+      contact: 'Contact',
+    },
+    hero: {
+      title1: 'Connecting Global',
+      title2: 'Fragrance Markets',
+      subtitle: 'Specializing in fragrance and chemical import/export and intermediary trade, bridging Asia and the world',
+      ctaPrimary: 'Explore Our Services',
+      ctaSecondary: 'Contact Us',
+    },
+    about: {
+      label: 'About Us',
+      title: 'Industry Expertise | Global Vision',
+      subtitle: 'UNIHOPE CO., LTD',
+      description: 'Headquartered in Osaka, Japan, Unihope Co., Ltd. is a specialized trading and technical service enterprise deeply rooted in the international fragrance and flavor industry. The founder brings over 20 years of extensive experience and has established long-term, robust strategic partnerships with the world\'s top 10 fragrance companies.',
+      bridge: {
+        title: 'Strategic Bridge & Supply Chain Excellence',
+        content: 'Unihope is dedicated to building a bridge of trust between premium suppliers and the global market. We maintain high-level synergy with leading fragrance ingredient suppliers in China and Southeast Asia. Beyond driving market expansion, we provide deep expertise in optimizing product structures and quality, earning the unwavering trust and support of our supply-side partners.',
+      },
+      green: {
+        title: 'Green-Driven: Leading a Sustainable Future',
+        content: 'While consolidating our core business in natural essential oils and synthetic fragrances, Unihope is proactively addressing the global climate challenge by making Bio-based Ingredients a core corporate strategy. We are committed to promoting low-carbon, eco-friendly ingredient solutions, aiming to make a substantial contribution to global carbon reduction and the sustainable development of the fragrance industry.',
+      },
+      future: {
+        title: 'Deepening Roots in Japan, Empowering the World',
+        content: 'Looking ahead, Unihope is committed to further expanding its presence in the Japanese market. We aim to introduce Japan\'s unique natural essential oils and specialty fragrance ingredients to the global stage, with a particular focus on the Chinese market. Simultaneously, by leveraging our global supply chain, we strive to supply high-quality fragrance ingredients to Japan at more competitive prices. Our goal is to support the advancement of Japan\'s food, personal care, and cosmetic industries, contributing to their ongoing growth and innovation.',
+      },
+      corePartners: {
+        title: 'Core Partners & Product Portfolio',
+        partners: [
+          {
+            name: 'PT. Natura Aromatik Nusantara (Indonesia)',
+            description: 'Specializing in high-purity Clove Oil and Eugenol series',
+          },
+          {
+            name: 'Zhejiang NHU Co., Ltd. (China)',
+            description: 'Strategic partner for a full range of fragrance products, including Linalool, Geraniol, Citronellol, Ionone, Menthol, and dozens of other core varieties',
+          },
+          {
+            name: 'Wanxiang Technology Group Co., Ltd. (China)',
+            description: 'Providing diverse, high-standard synthetic fragrance ingredients',
+          },
+          {
+            name: 'Chengdu Sunshine Flavors Co., Ltd. (China)',
+            description: 'A leading supplier in cutting-edge bio-based fragrances, focused on Bio-vanillin, Bio-raspberry ketone, and other innovative eco-friendly products',
+          },
+        ],
+      },
+      stats: {
+        years: { value: '20+', label: 'Years Experience' },
+        partners: { value: '10', label: 'Top 10 Fragrance Companies' },
+        transactions: { value: '1000+', label: 'Transactions' },
+      },
+    },
+    network: {
+      label: 'Global Network',
+      title: 'Your Global Trade Partner',
+      description: 'Our network covering major markets connects you to opportunities worldwide.',
+      locations: {
+        japan: 'Japan',
+        china: 'China',
+        usa: 'USA',
+        europe: 'Europe',
+        india: 'India',
+        sea: 'Southeast Asia',
+      },
+      roles: {
+        headquarters: 'Headquarters',
+        customer: 'Customer',
+        supplier: 'Supplier',
+      },
+    },
+    products: {
+      label: 'Products',
+      title: 'Premium Fragrance Products',
+      categories: {
+        fragrance: {
+          name: 'Natural Fragrances',
+          description: 'Natural essential oils, plant-derived fragrances, sustainable sourcing',
+        },
+        industrial: {
+          name: 'Synthetic Fragrances',
+          description: 'Linalool, Geraniol, Citronellol, Ionone, Menthol, and more',
+        },
+        electronic: {
+          name: 'Bio-based Ingredients',
+          description: 'Bio-vanillin, Bio-raspberry ketone, and other eco-friendly products',
+        },
+        daily: {
+          name: 'Specialty Ingredients',
+          description: 'Japan\'s unique natural essential oils and specialty fragrance ingredients',
+        },
+      },
+    },
+    partners: {
+      label: 'Partners',
+      title: 'Trusted by Industry Leaders',
+      description: 'We have established strong partnerships with leading companies worldwide.',
+    },
+    process: {
+      label: 'Our Process',
+      title: 'How We Work',
+      steps: {
+        consultation: {
+          title: 'Consultation',
+          description: 'We understand your needs and requirements in detail.',
+        },
+        sourcing: {
+          title: 'Sourcing',
+          description: 'We find the best products from our trusted supplier network.',
+        },
+        quality: {
+          title: 'Quality Control',
+          description: 'Strict inspections ensure compliance with international standards.',
+        },
+        logistics: {
+          title: 'Logistics',
+          description: 'Efficient transportation and delivery to your door.',
+        },
+        support: {
+          title: 'After-Sales Support',
+          description: 'Continuous support to ensure your satisfaction.',
+        },
+      },
+    },
+    contact: {
+      label: 'Contact Us',
+      title: 'Get in Touch',
+      info: {
+        address: 'Room 204, Higashinakajima Mansion, 1-11-18 Higashinakajima, Higashiyodogawa Ward, Osaka, Japan 533-0033',
+        phone: 'unihopejp@gmail.com',
+        email: 'unihopejp@gmail.com',
+      },
+      form: {
+        name: 'Name',
+        email: 'Email',
+        phone: 'Phone',
+        company: 'Company',
+        message: 'Message',
+        submit: 'Send Inquiry',
+        required: 'Required',
+      },
+    },
+    footer: {
+      description: 'Industry expertise with global vision. Building bridges of trust toward a sustainable future.',
+      quickLinks: 'Quick Links',
+      contact: 'Contact',
+      copyright: '© 2024 UNIHOPE CO., LTD. All rights reserved.',
+    },
+  },
+};
