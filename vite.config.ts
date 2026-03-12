@@ -4,13 +4,9 @@ import { defineConfig } from "vite"
 import { inspectAttr } from 'kimi-plugin-inspect-react'
 
 // https://vite.dev/config/
-// GitHub Pages: use /repo-name/ as base when GITHUB_REPOSITORY is set (CI)
-const base = process.env.GITHUB_REPOSITORY
-  ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/`
-  : './';
-
+// 使用相对路径 base，兼容 GitHub Pages 子路径部署，避免绝对路径导致图片 404
 export default defineConfig({
-  base,
+  base: './',
   plugins: [inspectAttr(), react()],
   resolve: {
     alias: {
