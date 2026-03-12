@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { assetUrl } from '@/lib/assets';
+import { images } from '@/assets/images';
 import { Building2, Users, Factory } from 'lucide-react';
 
 interface Location {
@@ -157,7 +157,7 @@ export default function GlobalNetwork() {
           <div className={`absolute inset-0 flex items-center justify-center ${mapImgError ? 'bg-dark-gray/50' : ''}`}>
             {!mapImgError && (
               <img
-                src={assetUrl('world-map-new.jpg')}
+                src={images.worldMap}
                 alt=""
                 className="w-full h-full object-contain opacity-40"
                 onError={() => setMapImgError(true)}

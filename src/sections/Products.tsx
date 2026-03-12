@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { assetUrl } from '@/lib/assets';
+import { images } from '@/assets/images';
 import { ArrowRight } from 'lucide-react';
 
 interface Product {
@@ -10,10 +10,10 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: 'fragrance', image: assetUrl('product-fragrance.jpg') },
-  { id: 'industrial', image: assetUrl('product-industrial.jpg') },
-  { id: 'electronic', image: assetUrl('product-electronics.jpg') },
-  { id: 'daily', image: assetUrl('product-daily.jpg') },
+  { id: 'fragrance', image: images.productFragrance },
+  { id: 'industrial', image: images.productIndustrial },
+  { id: 'electronic', image: images.productElectronics },
+  { id: 'daily', image: images.productDaily },
 ];
 
 function ProductCard({

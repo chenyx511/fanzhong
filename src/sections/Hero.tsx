@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import { assetUrl } from '@/lib/assets';
+import { images } from '@/assets/images';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 export default function Hero() {
@@ -40,7 +40,7 @@ export default function Hero() {
           }`}
         >
           <img
-            src={assetUrl('hero-bg.jpg')}
+            src={images.heroBg}
             alt=""
             className={`w-full h-full object-cover ${imgError ? 'opacity-0' : ''}`}
             loading="eager"
