@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { assetUrl } from '@/lib/assets';
 import { Building2, Users, Factory } from 'lucide-react';
 
 interface Location {
@@ -89,6 +91,7 @@ function LocationMarker({
 
 export default function GlobalNetwork() {
   const { t } = useLanguage();
+  const [mapImgError, setMapImgError] = useState(false);
   const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation({
     threshold: 0.2,
   });
@@ -151,12 +154,15 @@ export default function GlobalNetwork() {
           style={{ transitionDelay: '300ms' }}
         >
           {/* World Map */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <img
-              src={`${import.meta.env.BASE_URL}world-map-new.jpg`}
-              alt="World Map"
-              className="w-full h-full object-contain opacity-40"
-            />
+          <div className={`absolute inset-0 flex items-center justify-center ${mapImgError ? 'bg-dark-gray/50' : ''}`}>
+            {!mapImgError && (
+              <img
+                src={assetUrl('world-map-new.jpg')}
+                alt=""
+                className="w-full h-full object-contain opacity-40"
+                onError={() => setMapImgError(true)}
+              />
+            )}
           </div>
 
           {/* Location Markers */}

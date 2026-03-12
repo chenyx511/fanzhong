@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import { assetUrl } from '@/lib/assets';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 export default function Hero() {
   const { t, language } = useLanguage();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [imgError, setImgError] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -38,9 +40,12 @@ export default function Hero() {
           }`}
         >
           <img
-            src={`${import.meta.env.BASE_URL}hero-bg.jpg`}
-            alt="Chemical facility"
-            className="w-full h-full object-cover"
+            src={assetUrl('hero-bg.jpg')}
+            alt=""
+            className={`w-full h-full object-cover ${imgError ? 'opacity-0' : ''}`}
+            loading="eager"
+            fetchPriority="high"
+            onError={() => setImgError(true)}
           />
         </div>
         {/* Dark Overlay */}

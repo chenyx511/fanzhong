@@ -43,9 +43,10 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a
-            href="#"
-            className={`font-serif text-lg md:text-xl font-bold transition-colors duration-300 ${
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className={`font-serif text-lg md:text-xl font-bold transition-colors duration-300 text-left ${
               isScrolled ? 'text-dark' : 'text-white'
             }`}
           >
@@ -55,7 +56,7 @@ export default function Header() {
             <span className="sm:hidden">
               {language === 'ja' ? '凡仲合同' : 'UNIHOPE'}
             </span>
-          </a>
+          </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { assetUrl } from '@/lib/assets';
 import { ArrowRight } from 'lucide-react';
 
 interface Product {
@@ -8,12 +9,11 @@ interface Product {
   image: string;
 }
 
-const baseUrl = import.meta.env.BASE_URL;
 const products: Product[] = [
-  { id: 'fragrance', image: `${baseUrl}product-fragrance.jpg` },
-  { id: 'industrial', image: `${baseUrl}product-industrial.jpg` },
-  { id: 'electronic', image: `${baseUrl}product-electronics.jpg` },
-  { id: 'daily', image: `${baseUrl}product-daily.jpg` },
+  { id: 'fragrance', image: assetUrl('product-fragrance.jpg') },
+  { id: 'industrial', image: assetUrl('product-industrial.jpg') },
+  { id: 'electronic', image: assetUrl('product-electronics.jpg') },
+  { id: 'daily', image: assetUrl('product-daily.jpg') },
 ];
 
 function ProductCard({
@@ -32,6 +32,8 @@ function ProductCard({
   const { t } = useLanguage();
   const category = t.products.categories[product.id as keyof typeof t.products.categories];
 
+  const [imgError, setImgError] = useState(false);
+
   return (
     <div
       className={`relative overflow-hidden rounded-lg cursor-pointer transition-all duration-500 ${
@@ -44,13 +46,14 @@ function ProductCard({
       onMouseEnter={onHover}
     >
       {/* Image */}
-      <div className="absolute inset-0">
+      <div className={`absolute inset-0 ${imgError ? 'bg-dark' : ''}`}>
         <img
           src={product.image}
           alt={category.name}
           className={`w-full h-full object-cover transition-transform duration-700 ${
             isExpanded ? 'scale-110' : 'scale-100'
-          }`}
+          } ${imgError ? 'opacity-0' : ''}`}
+          onError={() => setImgError(true)}
         />
         {/* Gradient Overlay */}
         <div
