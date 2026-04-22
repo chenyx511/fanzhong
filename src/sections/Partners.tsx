@@ -11,12 +11,12 @@ const partners = [
   {
     name: 'Wanxiang Technology Group',
     website: 'https://www.wanxiang-tech.com',
-    logo: 'https://logo.clearbit.com/wanxiang-tech.com',
+    logo: '/supplier-logos/wanxiang.png',
   },
   {
     name: 'Zhonghua Chemical',
     website: 'https://www.zhhhg.com',
-    logo: 'https://logo.clearbit.com/zhhhg.com',
+    logo: '/supplier-logos/zhonghua.png',
   },
   {
     name: 'Chengdu Sunshine Flavors',
