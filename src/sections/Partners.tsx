@@ -1,39 +1,77 @@
 import { useLanguage } from '@/context/LanguageContext';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { Building2, Factory, Globe2, Landmark, Briefcase, Store } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 const partners = [
-  { name: 'Partner 1', icon: Building2 },
-  { name: 'Partner 2', icon: Factory },
-  { name: 'Partner 3', icon: Globe2 },
-  { name: 'Partner 4', icon: Landmark },
-  { name: 'Partner 5', icon: Briefcase },
-  { name: 'Partner 6', icon: Store },
+  {
+    name: 'Zhejiang NHU Co., Ltd.',
+    website: 'https://www.cnhu.com',
+    logo: 'https://logo.clearbit.com/cnhu.com',
+  },
+  {
+    name: 'Wanxiang Technology Group',
+    website: 'https://www.wanxiang-tech.com',
+    logo: 'https://logo.clearbit.com/wanxiang-tech.com',
+  },
+  {
+    name: 'Zhonghua Chemical',
+    website: 'https://www.zhhhg.com',
+    logo: 'https://logo.clearbit.com/zhhhg.com',
+  },
+  {
+    name: 'Chengdu Sunshine Flavors',
+    website: 'http://www.cdsunshineflavors.com',
+    logo: 'https://logo.clearbit.com/cdsunshineflavors.com',
+  },
+  {
+    name: 'Karnataka Aromas',
+    website: 'https://www.karnatakaaromas.com',
+    logo: 'https://logo.clearbit.com/karnatakaaromas.com',
+  },
 ];
 
 function PartnerLogo({
   partner,
   index,
+  linkLabel,
 }: {
   partner: (typeof partners)[0];
   index: number;
+  linkLabel: string;
 }) {
-  const Icon = partner.icon;
+  const fallbackLogo = `https://www.google.com/s2/favicons?sz=128&domain_url=${partner.website}`;
 
   return (
-    <div
-      className="flex-shrink-0 px-8 md:px-12 group"
+    <a
+      href={partner.website}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block rounded-xl border border-gold/20 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-md"
       style={{ animationDelay: `${index * 0.5}s` }}
     >
-      <div className="flex flex-col items-center space-y-3 transition-all duration-300 group-hover:scale-110">
-        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-light flex items-center justify-center transition-all duration-300 group-hover:bg-gold/10">
-          <Icon className="w-8 h-8 md:w-10 md:h-10 text-gray transition-colors duration-300 group-hover:text-gold" />
+      <div className="flex items-center gap-4">
+        <div className="flex h-14 w-14 items-center justify-center rounded-lg border border-gray-200 bg-white p-2">
+          <img
+            src={partner.logo}
+            alt={`${partner.name} logo`}
+            className="h-full w-full object-contain"
+            onError={(event) => {
+              const target = event.currentTarget;
+              if (target.src !== fallbackLogo) {
+                target.src = fallbackLogo;
+              }
+            }}
+          />
         </div>
-        <span className="text-sm text-gray transition-colors duration-300 group-hover:text-gold">
-          {partner.name}
-        </span>
+        <div className="min-w-0 flex-1">
+          <div className="truncate text-sm md:text-base font-semibold text-dark">{partner.name}</div>
+          <div className="mt-1 flex items-center text-xs text-gold">
+            <ExternalLink className="mr-1 h-3.5 w-3.5" />
+            <span className="truncate">{linkLabel}</span>
+          </div>
+        </div>
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -83,7 +121,7 @@ export default function Partners() {
           </p>
         </div>
 
-        {/* Infinite Scroll Carousel */}
+        {/* Supplier Logos and Website Links */}
         <div
           className={`relative transition-all duration-1000 ${
             sectionVisible
@@ -92,17 +130,11 @@ export default function Partners() {
           }`}
           style={{ transitionDelay: '400ms' }}
         >
-          {/* Gradient Masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-gray-light to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-gray-light to-transparent z-10 pointer-events-none" />
-
-          {/* Scrolling Track */}
-          <div className="flex overflow-hidden">
-            <div className="flex animate-scroll-infinite">
-              {[...partners, ...partners].map((partner, index) => (
-                <PartnerLogo key={`${partner.name}-${index}`} partner={partner} index={index} />
-              ))}
-            </div>
+          <h3 className="mb-6 text-xl font-serif font-bold text-dark">{t.partners.supplierTitle}</h3>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {partners.map((partner, index) => (
+              <PartnerLogo key={partner.name} partner={partner} index={index} linkLabel={t.partners.linkLabel} />
+            ))}
           </div>
         </div>
 
@@ -131,22 +163,6 @@ export default function Partners() {
         </div>
       </div>
 
-      <style>{`
-        @keyframes scroll-infinite {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-scroll-infinite {
-          animation: scroll-infinite 30s linear infinite;
-        }
-        .animate-scroll-infinite:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   );
 }

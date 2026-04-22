@@ -170,6 +170,39 @@ export default function Products() {
             />
           ))}
         </div>
+
+        <div
+          className={`mt-12 transition-all duration-700 ${
+            sectionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+          }`}
+          style={{ transitionDelay: '300ms' }}
+        >
+          <h3 className="text-2xl font-serif font-bold text-dark">{t.products.catalogTitle}</h3>
+          <p className="mt-2 text-sm md:text-base text-dark/70">{t.products.catalogDescription}</p>
+
+          <div className="mt-6 overflow-hidden rounded-xl border border-gold/30 bg-white shadow-sm">
+            <div className="max-h-[520px] overflow-auto">
+              <table className="w-full text-left text-sm">
+                <thead className="sticky top-0 bg-dark text-white">
+                  <tr>
+                    <th className="px-4 py-3 font-semibold">{t.products.tableHeaders.item}</th>
+                    <th className="px-4 py-3 font-semibold">{t.products.tableHeaders.japanese}</th>
+                    <th className="px-4 py-3 font-semibold">{t.products.tableHeaders.origin}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {t.products.catalogItems.map((item) => (
+                    <tr key={item.item} className="border-t border-gold/15 even:bg-gold/5">
+                      <td className="px-4 py-3 text-dark">{item.item}</td>
+                      <td className="px-4 py-3 text-dark/80">{item.japanese}</td>
+                      <td className="px-4 py-3 text-dark/80">{item.origin}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

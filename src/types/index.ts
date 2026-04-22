@@ -75,12 +75,24 @@ export interface Translation {
   products: {
     label: string;
     title: string;
+    catalogTitle: string;
+    catalogDescription: string;
+    tableHeaders: {
+      item: string;
+      japanese: string;
+      origin: string;
+    };
     categories: {
       fragrance: { name: string; description: string };
       industrial: { name: string; description: string };
       electronic: { name: string; description: string };
       daily: { name: string; description: string };
     };
+    catalogItems: {
+      item: string;
+      japanese: string;
+      origin: string;
+    }[];
   };
   
   // Partners
@@ -88,6 +100,8 @@ export interface Translation {
     label: string;
     title: string;
     description: string;
+    supplierTitle: string;
+    linkLabel: string;
   };
   
   // Process

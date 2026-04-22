@@ -3,6 +3,13 @@ import { useLanguage } from '@/context/LanguageContext';
 import { images } from '@/assets/images';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
+const PARTICLES = Array.from({ length: 20 }, (_, index) => ({
+  left: `${(index * 37) % 100}%`,
+  top: `${(index * 53) % 100}%`,
+  animationDelay: `${(index * 0.3) % 6}s`,
+  animationDuration: `${6 + (index % 4)}s`,
+}));
+
 export default function Hero() {
   const { t, language } = useLanguage();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -10,7 +17,11 @@ export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setIsLoaded(true);
+    const frameId = requestAnimationFrame(() => {
+      setIsLoaded(true);
+    });
+
+    return () => cancelAnimationFrame(frameId);
   }, []);
 
   const scrollToAbout = () => {
@@ -62,16 +73,11 @@ export default function Hero() {
 
       {/* Floating Particles */}
       <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
-        {[...Array(20)].map((_, i) => (
+        {PARTICLES.map((particle, i) => (
           <div
             key={i}
             className="absolute w-1 h-1 bg-gold/40 rounded-full animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 6}s`,
-              animationDuration: `${6 + Math.random() * 4}s`,
-            }}
+            style={particle}
           />
         ))}
       </div>
