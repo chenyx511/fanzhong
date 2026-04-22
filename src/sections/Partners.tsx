@@ -11,12 +11,12 @@ const partners = [
   {
     name: 'Wanxiang Technology Group',
     website: 'https://www.wanxiang-tech.com',
-    logo: '/supplier-logos/wanxiang.png',
+    logo: 'supplier-logos/wanxiang.png',
   },
   {
     name: 'Zhonghua Chemical',
     website: 'https://www.zhhhg.com',
-    logo: '/supplier-logos/zhonghua.png',
+    logo: 'supplier-logos/zhonghua.png',
   },
   {
     name: 'Chengdu Sunshine Flavors',
@@ -39,6 +39,9 @@ function PartnerLogo({
   index: number;
   linkLabel: string;
 }) {
+  const logoSrc = partner.logo.startsWith('http')
+    ? partner.logo
+    : `${import.meta.env.BASE_URL}${partner.logo}`;
   const fallbackLogo = `https://www.google.com/s2/favicons?sz=128&domain_url=${partner.website}`;
 
   return (
@@ -52,7 +55,7 @@ function PartnerLogo({
       <div className="flex items-center gap-4">
         <div className="flex h-14 w-14 items-center justify-center rounded-lg border border-gray-200 bg-white p-2">
           <img
-            src={partner.logo}
+            src={logoSrc}
             alt={`${partner.name} logo`}
             className="h-full w-full object-contain"
             onError={(event) => {
