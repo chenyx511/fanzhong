@@ -42,7 +42,7 @@ function PartnerLogo({
   const logoSrc = partner.logo.startsWith('http')
     ? partner.logo
     : `${import.meta.env.BASE_URL}${partner.logo}`;
-  const fallbackLogo = `https://www.google.com/s2/favicons?sz=128&domain_url=${partner.website}`;
+  const fallbackLogo = `https://www.google.com/s2/favicons?sz=256&domain_url=${partner.website}`;
 
   return (
     <a
@@ -53,11 +53,11 @@ function PartnerLogo({
       style={{ animationDelay: `${index * 0.5}s` }}
     >
       <div className="flex flex-col items-center gap-5 text-center">
-        <div className="flex h-28 w-28 shrink-0 items-center justify-center rounded-xl border border-gray-200 bg-white p-4 md:h-32 md:w-32 md:p-5">
+        <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-xl border border-gray-200 bg-white md:h-32 md:w-32">
           <img
             src={logoSrc}
             alt={`${partner.name} logo`}
-            className="max-h-full max-w-full object-contain"
+            className="absolute inset-3 block object-contain md:inset-4"
             onError={(event) => {
               const target = event.currentTarget;
               if (target.src !== fallbackLogo) {
