@@ -367,7 +367,7 @@ export const translations: Translations = {
       label: 'Partners',
       title: 'Trusted by Industry Leaders',
       description: 'We have established strong partnerships with leading companies worldwide.',
-      supplierTitle: 'Represented Fragrance Suppliers',
+      supplierTitle: 'Represented Suppliers',
       linkLabel: 'Visit Official Website',
     },
     process: {
