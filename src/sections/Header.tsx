@@ -87,7 +87,7 @@ export default function Header() {
               }`}
             >
               <Globe className="w-4 h-4" />
-              <span>{language === 'ja' ? '日本語' : 'English'}</span>
+              <span>{language === 'ja' ? 'English' : '日本語'}</span>
             </button>
           </div>
 
@@ -127,7 +127,7 @@ export default function Header() {
               }`}
             >
               <Globe className="w-4 h-4" />
-              <span>{language === 'ja' ? '日本語' : 'English'}</span>
+              <span>{language === 'ja' ? 'English' : '日本語'}</span>
             </button>
           </nav>
         </div>
