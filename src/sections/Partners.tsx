@@ -49,15 +49,15 @@ function PartnerLogo({
       href={partner.website}
       target="_blank"
       rel="noopener noreferrer"
-      className="group block rounded-xl border border-gold/20 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-md"
+      className="group block rounded-xl border border-gold/20 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-md"
       style={{ animationDelay: `${index * 0.5}s` }}
     >
-      <div className="flex items-center gap-4">
-        <div className="flex h-14 w-14 items-center justify-center rounded-lg border border-gray-200 bg-white p-2">
+      <div className="flex flex-col items-center gap-5 text-center">
+        <div className="flex h-28 w-28 shrink-0 items-center justify-center rounded-xl border border-gray-200 bg-white p-4 md:h-32 md:w-32 md:p-5">
           <img
             src={logoSrc}
             alt={`${partner.name} logo`}
-            className="h-full w-full object-contain"
+            className="max-h-full max-w-full object-contain"
             onError={(event) => {
               const target = event.currentTarget;
               if (target.src !== fallbackLogo) {
@@ -66,11 +66,11 @@ function PartnerLogo({
             }}
           />
         </div>
-        <div className="min-w-0 flex-1">
-          <div className="truncate text-sm md:text-base font-semibold text-dark">{partner.name}</div>
-          <div className="mt-1 flex items-center text-xs text-gold">
-            <ExternalLink className="mr-1 h-3.5 w-3.5" />
-            <span className="truncate">{linkLabel}</span>
+        <div className="w-full min-w-0">
+          <div className="text-sm font-semibold leading-snug text-dark md:text-base">{partner.name}</div>
+          <div className="mt-2 flex items-center justify-center gap-1 text-xs text-gold">
+            <ExternalLink className="h-3.5 w-3.5 shrink-0" />
+            <span>{linkLabel}</span>
           </div>
         </div>
       </div>
