@@ -39,10 +39,14 @@ function PartnerLogo({
   index: number;
   linkLabel: string;
 }) {
-  const logoSrc = partner.logo.startsWith('http')
-    ? partner.logo
-    : `${import.meta.env.BASE_URL}${partner.logo}`;
-  const fallbackLogo = `https://www.google.com/s2/favicons?sz=256&domain_url=${partner.website}`;
+  const remoteLogo =
+    partner.logo.startsWith('http') && partner.logo.includes('clearbit.com')
+      ? `https://www.google.com/s2/favicons?sz=256&domain_url=${encodeURIComponent(partner.website)}`
+      : partner.logo.startsWith('http')
+        ? partner.logo
+        : null;
+  const logoSrc = remoteLogo ?? `${import.meta.env.BASE_URL}${partner.logo}`;
+  const fallbackLogo = `https://www.google.com/s2/favicons?sz=256&domain_url=${encodeURIComponent(partner.website)}`;
 
   return (
     <a
@@ -53,16 +57,15 @@ function PartnerLogo({
       style={{ animationDelay: `${index * 0.5}s` }}
     >
       <div className="flex flex-col items-center gap-5 text-center">
-        <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-xl border border-gray-200 bg-white md:h-32 md:w-32">
+        <div className="box-border grid h-28 w-28 shrink-0 overflow-hidden rounded-xl border border-gray-200 bg-white p-3 [grid-template:minmax(0,1fr)/minmax(0,1fr)] md:h-32 md:w-32 md:p-4">
           <img
             src={logoSrc}
             alt={`${partner.name} logo`}
-            className="absolute inset-3 block object-contain md:inset-4"
+            className="col-start-1 row-start-1 block h-full w-full min-h-0 min-w-0 object-contain object-center"
             onError={(event) => {
               const target = event.currentTarget;
-              if (target.src !== fallbackLogo) {
-                target.src = fallbackLogo;
-              }
+              if (target.src.includes('www.google.com/s2/favicons')) return;
+              target.src = fallbackLogo;
             }}
           />
         </div>
